@@ -46,7 +46,7 @@ from flask import Flask, Response, jsonify
 # ─────────────────────────────────────────────────────────────────────
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────
-APP_VERSION = "100"
+APP_VERSION = "101"
 APP_NAME    = "XRPRadar"
 TAGLINE     = "The NEW XRP Intelligence Standard"
 COPYRIGHT   = "\u00A9\uFE0F Copyright 2026 Red Rio Ventures, LLC. All rights reserved globally."
@@ -4278,6 +4278,7 @@ def render_page():
       </div>
       <div class="hright" style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
         <div style="display:flex;align-items:center;gap:8px">
+          <a href="/about" style="color:var(--hdr);font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hdr);padding:3px 10px;border-radius:5px;letter-spacing:0.5px">ABOUT US</a>
           <span class="dot"></span>
           <span class="run-lbl">LIVE</span>
           <span class="upd" id="uts">{boot_str}</span>
@@ -5784,6 +5785,110 @@ def render_page():
 @app.route("/")
 def home():
     return Response(render_page(), mimetype="text/html")
+
+
+@app.route("/about")
+def about_us():
+    html_out = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — XRPRadar</title>
+<meta name="description" content="About XRPRadar and Red Rio Ventures, LLC — our mission, our commitment to user safety, and what this site does and does not do.">
+<style>
+  :root{{ --bg:#0a0e1a; --s1:#0f1526; --hdr:#03b1fc; --tq:#00e5cc; --tx:#a8bdd0; --br:#e8eef5; --b:#1e2a42; --or:#CC5F00; }}
+  *{{ box-sizing:border-box; }}
+  body{{ background:var(--bg); color:var(--br); font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; margin:0; padding:0; line-height:1.7; }}
+  .w{{ max-width:900px; margin:0 auto; padding:40px 24px 80px; }}
+  .back-link{{ display:inline-block; margin-bottom:24px; color:var(--hdr); text-decoration:none; font-size:14px; font-weight:600; }}
+  .back-link:hover{{ text-decoration:underline; }}
+  h1{{ color:var(--hdr); font-size:32px; margin:0 0 8px; }}
+  .tagline{{ color:var(--tx); font-size:15px; margin-bottom:36px; }}
+  h2{{ color:var(--tq); font-size:20px; margin:36px 0 12px; border-bottom:1px solid var(--b); padding-bottom:8px; }}
+  p{{ font-size:15px; color:var(--br); margin:0 0 14px; }}
+  .promise-box{{ background:var(--s1); border:2px solid var(--or); border-radius:10px; padding:22px 24px; margin:16px 0; }}
+  .promise-box h2{{ margin-top:0; border:none; color:var(--or); }}
+  .promise-list{{ margin:12px 0; padding-left:0; list-style:none; }}
+  .promise-list li{{ padding:6px 0 6px 28px; position:relative; font-size:15px; }}
+  .promise-list li:before{{ content:"\2713"; position:absolute; left:0; color:var(--tq); font-weight:700; }}
+  .fine-print{{ font-size:12.5px; color:var(--tx); margin-top:40px; padding-top:20px; border-top:1px solid var(--b); }}
+  .contact-box{{ background:var(--s1); border:1px solid var(--b); border-radius:8px; padding:18px 20px; margin-top:8px; }}
+</style>
+</head>
+<body>
+<div class="w">
+  <a href="/" class="back-link">&larr; Back to XRPRadar</a>
+  <h1>About Us</h1>
+  <div class="tagline">XRPRadar &middot; Operated by Red Rio Ventures, LLC</div>
+
+  <h2>About Red Rio Ventures, LLC</h2>
+  <p>Red Rio Ventures, LLC is an independent, privately held company focused on building informational
+  and educational tools for the cryptocurrency community. XRPRadar is our flagship product: a free,
+  publicly accessible dashboard that aggregates live market data, news, and publicly available
+  research related to XRP and the broader Ripple ecosystem.</p>
+  <p>We are not a financial institution, exchange, broker-dealer, or custodian. We do not manage funds,
+  execute trades, or provide investment advisory services of any kind.</p>
+
+  <h2>Our Mission</h2>
+  <p><strong>In the United States:</strong> XRPRadar exists to give everyday individuals &mdash; from
+  first-time crypto observers to experienced traders &mdash; free, centralized access to the same
+  caliber of real-time market data, regulatory tracking, and news synthesis that was once scattered
+  across dozens of paid tools and specialist forums. We believe informed participation in emerging
+  financial technology should not require a subscription or a finance degree.</p>
+  <p><strong>Globally:</strong> XRP and the XRP Ledger are used and discussed far beyond U.S. borders.
+  XRPRadar tracks regional adoption, partnerships, and regulatory developments across multiple
+  geographies specifically so that our global audience is not limited to a U.S.-centric view of a
+  worldwide technology. Our goal is to be a genuinely international resource, not a regional one with
+  an international-sounding name.</p>
+
+  <div class="promise-box">
+    <h2>Our Patron Promise</h2>
+    <p style="font-weight:600;color:var(--br);margin-bottom:14px">We will NEVER ask you for your wallet address,
+    private keys, seed phrase, banking information, or any financial account credentials &mdash; for any reason,
+    at any time, through any part of this site.</p>
+    <ul class="promise-list">
+      <li>XRPRadar is a read-only information and education site. There is nothing to log into, nothing to
+      connect, and no wallet to link.</li>
+      <li>We will never send you a message, pop-up, or email asking you to "verify," "connect," or "confirm"
+      a wallet or account.</li>
+      <li>Every calculator and tool on this site runs entirely in your own browser. Nothing you type into a
+      calculator is transmitted, stored, or seen by us.</li>
+      <li>If you ever encounter a page, email, or message claiming to be XRPRadar that asks for financial
+      credentials, it is not us, and we encourage you to disregard it.</li>
+    </ul>
+  </div>
+
+  <h2>What This Site Is</h2>
+  <p>XRPRadar is an aggregation and educational dashboard. We compile publicly available news, publicly
+  available market data from third-party sources (with attribution), and original written analysis. All
+  content is provided for informational and educational purposes only and does not constitute financial,
+  investment, legal, or tax advice. Cryptocurrency markets are volatile and carry substantial risk;
+  always do your own research and consult a licensed professional before making financial decisions.</p>
+
+  <h2>What This Site Is Not</h2>
+  <p>XRPRadar does not offer wallet services, custody of any kind, trading execution, account creation,
+  deposits, withdrawals, or any function that would require a visitor to share personal financial
+  information. We do not sell financial products. We do not offer ads that promote financial products
+  on behalf of third parties.</p>
+
+  <h2>Contact</h2>
+  <div class="contact-box">
+    <p style="margin:0">Red Rio Ventures, LLC<br>
+    Operating XRPRadar.com, XRPRadar.xyz, and XRPRadar.net<br>
+    For inquiries regarding this site, please reach out through the contact channel listed on our
+    primary domain.</p>
+  </div>
+
+  <div class="fine-print">
+    &copy; 2026 Red Rio Ventures, LLC. All rights reserved globally. XRPRadar is an independent
+    informational service and is not affiliated with, endorsed by, or sponsored by Ripple Labs Inc.
+    or the XRP Ledger Foundation. XRP and related marks are property of their respective owners.
+  </div>
+</div>
+</body>
+</html>"""
+    return Response(html_out, mimetype="text/html")
 
 
 @app.route("/ping")
